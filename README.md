@@ -12,7 +12,7 @@ Project meets assignment requirements. Changes / Challenges:
   - Did not take full advantage of the ES6 modules. If I were to build this out more, that would be a part of the refactoring for sure.
 - On user search, I requested 25 gifs from from the Giphy API `search` endpoint, looped through the returned object to extract the title and url, and pushed that to an array that we iterate on user button click.
   - To make this more performant, I would want to lazy-load or somehow load those assets in the background. As it is now, they load when they are rendered, so some lag is visible depending on file size.
-- I **THINK** I secured my Giphy API Key. I used the dotenv-webpack plugin with a .env file in the root of the project with the key. I made sure the .env file was in my .gitignore. I also added that environment variable to GitHub pages, so hopefully the project will work when published there. I know I jumped forward to that in the curriculum, but I made that choice for me.
+- ~~I **THINK** I secured my Giphy API Key.~~ I used the dotenv-webpack plugin with a .env file in the root of the project with the key. I made sure the .env file was in my .gitignore. I also added that environment variable to GitHub pages, so hopefully the project will work when published there. I know I jumped forward to that in the curriculum, but I made that choice for me.
 - There are a few small bugs in the code, but the fetch and promise code is correct to my knowledge.
 
 As always, thanks for taking a look at my projects, and any feedback (particularly low hanging fruit) is always appreciated.
@@ -20,3 +20,7 @@ As always, thanks for taking a look at my projects, and any feedback (particular
 **UPDATE: Exposed my first API key:** Lesson learned - `console.log()` will log what you ask it to, to the console. I am so glad I took the time to try to secure the secret, because there were no stakes if I made a mistake and lo and behold, one was made. I obtained a new key and plugged it into the appropriate spot and now we are back in business.
 
 *Another Update:* I may have exceeded the giphy request limit on the test app API. I updated the verbiage to let the user know if that's the case.
+
+**Last update:** There doesn't seem to be a way to keep the API key secret in a GitHub Pages deployment. I found the API key in the source that the GitHub deployment action wrote it at the top of one of the JavaScript bundles.
+
+I will look forward to learning how to properly secure secrets like API keys and have them be usable and secure.
