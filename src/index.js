@@ -1,13 +1,13 @@
 /* eslint-disable no-plusplus */
 import './style.css';
-// see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
+import mossFire from './itcrowdmossfire.gif';
 
 const giphyApiKey = process.env.GIPHY_API_KEY;
 
 let gifArray = [];
 let counter = 1;
-const defaultGif =
-	'https://giphy.com/gifs/theitcrowd-funny-crowd-1d5WHp6pGKc3BhVN1g';
+const defaultGif = new Image();
+defaultGif.src = mossFire;
 
 // dom insertion
 const container = document.createElement('div');
@@ -33,13 +33,14 @@ mainTitle.textContent = 'Giphy API Output';
 main.appendChild(mainTitle);
 
 const giphyImg = document.createElement('img');
-giphyImg.src = '';
+giphyImg.src = defaultGif.src;
 giphyImg.classList.add('giphy-img');
 main.appendChild(giphyImg);
 
 const giphyTitle = document.createElement('h2');
 giphyTitle.classList.add('giphy-title');
-giphyTitle.textContent = '';
+giphyTitle.textContent =
+	'Search for a Giphy, then click "next" to cycle through the 25 results';
 main.appendChild(giphyTitle);
 
 const giphyNav = document.createElement('nav');
@@ -146,18 +147,21 @@ function addGifsToGifArray(response) {
 
 // eslint-disable-next-line consistent-return
 function displayGif() {
+	if (typeof gifArray === 'undefined' || gifArray.length === 0) {
+		giphyImg.src = defaultGif.src;
+		giphyTitle.textContent = 'Try Another Search';
+		return;
+	}
 	// eslint-disable-next-line no-param-reassign
 	if (counter === gifArray.length - 1) {
 		// eslint-disable-next-line no-param-reassign
 		counter = 0;
 	}
-	console.log(counter);
-	// console.log(gifArray[counter].src);
 	giphyImg.src = gifArray[counter].src;
-	console.log(gifArray[counter].src);
-	if (gifArray[counter].src === '') {
-		giphyTitle.src = defaultGif;
+	if (giphyImg.src === '') {
+		displayGif(defaultGif);
 	}
+
 	giphyTitle.textContent = gifArray[counter].title;
 	// eslint-disable-next-line no-param-reassign
 	++counter;
@@ -165,4 +169,3 @@ function displayGif() {
 }
 
 console.log(gifArray);
-displayGif(defaultGif);
