@@ -13,7 +13,7 @@ __webpack_require__.r(__webpack_exports__);
 /* eslint-disable no-plusplus */
 
 
-var giphyApiKey = "iodsp74qDBeVdGSHhd0FXgZtNXSj5hW9";
+var giphyApiKey = "kH5dYcGGjR3ZRvb9kBmd4lA0os9motut";
 var gifArray = [];
 var counter = 1;
 var defaultGif = new Image();
