@@ -120,7 +120,7 @@ function getGiphy(searchTerm = 'beach', offsetNumber = 500) {
 		.catch(err => {
 			giphyImg.src = defaultGif;
 			giphyTitle.textContent = 'No Gifs Found or Error';
-			console.log(err);
+			// console.log(err);
 		});
 }
 
