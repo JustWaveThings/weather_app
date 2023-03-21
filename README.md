@@ -16,3 +16,7 @@ Project meets assignment requirements. Changes / Challenges:
 - There are a few small bugs in the code, but the fetch and promise code is correct to my knowledge.
 
 As always, thanks for taking a look at my projects, and any feedback (particularly low hanging fruit) is always appreciated.
+
+**UPDATE: Exposed my first API key:** Lesson learned - `console.log()` will log what you ask it to, to the console. I am so glad I took the time to try to secure the secret, because there were no stakes if I made a mistake and lo and behold, one was made. I obtained a new key and plugged it into the appropriate spot and now we are back in business.
+
+*Another Update:* I may have exceeded the giphy request limit on the test app API. I updated the verbiage to let the user know if that's the case.
