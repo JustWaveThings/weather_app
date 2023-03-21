@@ -82,7 +82,7 @@ giphySearchBtn.appendChild(giphySearchBtnIcon);
 giphySearchBtn.addEventListener('click', function (e) {
 	e.preventDefault();
 	getGiphy(giphySearchInput.value);
-	console.log(giphySearchInput.value);
+
 	giphySearchInput.value = '';
 	displayGif();
 });
@@ -101,7 +101,7 @@ function getGiphy(searchTerm = 'beach', offsetNumber = 500) {
 	const urlWithSearch = new URL(
 		`https://api.giphy.com/v1/gifs/search?api_key=${giphyApiKey}&q=${searchTermConverted}&limit=25&offset=${offsetNumber}&rating=r&lang=en`
 	);
-	console.log(urlWithSearch.href);
+
 	fetch(urlWithSearch.href, {
 		mode: 'cors',
 	})
@@ -111,7 +111,7 @@ function getGiphy(searchTerm = 'beach', offsetNumber = 500) {
 		.then(function (response) {
 			// console.log(response.data.images.original.url);
 			// console.log(response.data.title);
-			console.log(response);
+
 			addGifsToGifArray(response.data);
 			giphyImg.src = response.data[0].images.original.url;
 			giphyTitle.textContent = response.data.title;
@@ -141,8 +141,6 @@ function addGifsToGifArray(response) {
 		const newGif = gifFactory(gif.images.original.url, gif.title);
 		gifArray.push(newGif);
 	});
-
-	console.log(gifArray);
 }
 
 // eslint-disable-next-line consistent-return
