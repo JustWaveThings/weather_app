@@ -34,7 +34,8 @@
 				"christian-kohler.npm-intellisense",
 				"formulahendry.code-runner",
 				"stylelint.vscode-stylelint",
-				"ohansemmanuel.css-grid-snippets"
+				"ohansemmanuel.css-grid-snippets",
+				"lukas-tr.materialdesignicons-intellisense"
 			]
 		}
 	}

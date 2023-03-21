@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
 	mode: 'development',
@@ -29,6 +30,7 @@ module.exports = {
 		clean: true,
 	},
 	plugins: [
+		new Dotenv(),
 		new HtmlWebpackPlugin({
 			title: 'What shows up in the browser tab',
 			template: './src/index.html',
@@ -38,7 +40,7 @@ module.exports = {
 		new StylelintPlugin({
 			fix: false,
 			failOnError: false,
-			failOnWarning: false
+			failOnWarning: false,
 		}),
 	],
 	optimization: {
@@ -69,11 +71,9 @@ module.exports = {
 				use: {
 					loader: 'babel-loader',
 					options: {
-						presets: [
-							['@babel/preset-env', { targets: "defaults" }]
-						]
-					}
-				}
+						presets: [['@babel/preset-env', { targets: 'defaults' }]],
+					},
+				},
 			},
 		],
 	},
