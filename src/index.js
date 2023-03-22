@@ -1,5 +1,6 @@
 /* eslint-disable no-shadow */
 /* eslint-disable no-plusplus */
+
 import weather from './weather/weatherAPI';
 import './style.css';
 import mossFire from './itcrowdmossfire.gif';
@@ -166,5 +167,5 @@ function displayGif() {
 	console.log(counter);
 }
 
-console.log(gifArray);
-weather();
+// console.log(gifArray);
+weather('33040', 3);
