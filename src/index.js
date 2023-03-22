@@ -5,6 +5,7 @@ import './meyerReset.css';
 import userFormData from './weather/weatherForm';
 import theWeather from './weather/weatherAPI';
 import pullWeatherData from './weather/weatherAppDataObj';
+import './weather/mainViews';
 
 async function getWeatherData(userInput) {
 	const data = userInput;
