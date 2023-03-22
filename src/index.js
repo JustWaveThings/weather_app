@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 /* eslint-disable no-plusplus */
 import './style.css';
 import mossFire from './itcrowdmossfire.gif';
@@ -96,22 +97,20 @@ nextGiphyBtn.addEventListener('click', e => {
 	e.preventDefault();
 	displayGif();
 });
-function getGiphy(searchTerm = 'beach', offsetNumber = 500) {
+
+async function getGiphy(searchTerm = 'beach', offsetNumber = 500) {
 	const searchTermConverted = convertSearchStringToUrlInsert(searchTerm);
 	const urlWithSearch = new URL(
 		`https://api.giphy.com/v1/gifs/search?api_key=${giphyApiKey}&q=${searchTermConverted}&limit=25&offset=${offsetNumber}&rating=r&lang=en`
 	);
 
-	fetch(urlWithSearch.href, {
+	const response = await fetch(urlWithSearch.href, {
 		mode: 'cors',
-	})
+	});
+	// eslint-disable-next-line no-shadow
+	response
+		.json()
 		.then(function (response) {
-			return response.json();
-		})
-		.then(function (response) {
-			// console.log(response.data.images.original.url);
-			// console.log(response.data.title);
-
 			addGifsToGifArray(response.data);
 			giphyImg.src = response.data[0].images.original.url;
 			giphyTitle.textContent = response.data.title;
@@ -156,8 +155,8 @@ function displayGif() {
 		counter = 0;
 	}
 	giphyImg.src = gifArray[counter].src;
-	if (giphyImg.src === '') {
-		displayGif(defaultGif);
+	if (giphyImg.src === '' || giphyImg.src === undefined) {
+		giphyImg.src = defaultGif.src;
 	}
 
 	giphyTitle.textContent = gifArray[counter].title;
