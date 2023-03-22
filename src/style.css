@@ -4,60 +4,28 @@
 }
 
 body {
-	background-color: black;
+	background-color: lightgray;
 	color: white;
-	letter-spacing: .1rem;
 	font-family: RobotoRegular, sans-serif;
 	font-size: 16px;
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-	align-items: center;
-	margin: 0;
-	padding: 0;
-	height: 100vh;
-
+	height: 100svh;
 }
 
-.header-title {
-	font-size: 3.5rem;
 
 
-}
-
-.header, .container {
+.container {
+	background-color: black;
 	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
+	flex-direction: row;
+	justify-content: flex-end;
 	align-items: center;
 	padding: 1rem 3rem;
-	margin-top: 1rem;
-	border-color: rgb(240 248 255 / 42.3%);
-	border-style: solid;
 	font-size: 3rem;
 	font-weight: 700;
 }
 
-.main {
-	min-height: 50dvh;
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-	align-items: center;
-	gap: 1rem;
-}
-
-.main-title {
-	font-size: 1.5rem;
-	font-weight: 500;
-}
-
-.giphy-title {
-	font-size: 1rem;
-	font-weight: 300;
-	color: white;
-	opacity: .7;
-	letter-spacing: .1rem;
+.header{
+	margin-right: auto;
 }
 
 legend, fieldset {
@@ -75,15 +43,12 @@ form.search-form {
 	border: none;
 }
 
-.giphy-search-input {
+.search-input {
 	flex-grow: 1;
 }
 
-.next-giphy-btn {
-	flex-basis: auto
-}
 
-.giphy-search-btn, .next-giphy-btn, .giphy-search-input {
+.search-btn, .search-input {
 	padding: .5rem 1rem;
 	border-color: rgb(240 248 255 / 42.3%);
 	border-style: solid;
@@ -92,17 +57,13 @@ form.search-form {
 	border-radius: .5rem;
 }
 
-
-
-.giphy-search-btn:hover, .next-giphy-btn:hover, .giphy-search-input:hover {
+.search-btn:hover, .search-input:hover {
 	cursor: pointer;
 	transition: scale  0.3s cubic-bezier(0.25, 0.1, 0, 3.04);
 	transform: scale(1.1);
 }
 
-.giphy-search-input:hover{
+.search-input:hover{
 	cursor: text;
 	transform: scale(1.05)
 }
-
-

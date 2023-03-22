@@ -3,6 +3,11 @@ const container = document.createElement('div');
 container.classList.add('container');
 document.body.appendChild(container);
 
+const header = document.createElement('header');
+header.classList.add('header');
+header.textContent = 'Weather App';
+container.appendChild(header);
+
 const nav = document.createElement('nav');
 nav.classList.add('nav', 'container');
 container.appendChild(nav);
@@ -34,6 +39,7 @@ searchForm.appendChild(searchInput);
 
 const searchBtn = document.createElement('button');
 searchBtn.classList.add('search-btn');
+searchBtn.textContent = 'Search';
 searchForm.appendChild(searchBtn);
 const searchBtnIcon = document.createElement('i');
 searchBtnIcon.classList.add('fa', 'fasearch');
@@ -41,7 +47,7 @@ searchBtn.appendChild(searchBtnIcon);
 
 searchBtn.addEventListener('click', function (e) {
 	e.preventDefault();
-	get(searchInput.value);
+	console.log(searchInput.value);
 	searchInput.value = '';
 });
 
