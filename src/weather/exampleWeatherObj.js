@@ -3009,8 +3009,6 @@ const CurrentConditionsObj = {
 	conditionIcon: `https:${conditionIcon}`,
 };
 
-console.log(CurrentConditionsObj);
-
 // Key West Florida USA 2023-03-22 11:21 78.1 82.5 15 E 1 Sunny https://cdn.weatherapi.com/weather/64x64/day/113.png
 
 // object destructuring  for c / KMPH // only the items that have a non standard output
@@ -3018,7 +3016,7 @@ const {
 	current: { temp_c: tempC, feelslike_c: feelsLikeC, wind_kph: windKPH },
 } = sampleObject;
 
-console.log(
+/* console.log(
 	name,
 	region,
 	country,
@@ -3031,7 +3029,7 @@ console.log(
 	isDay,
 	textCondition,
 	`https:${conditionIcon}`
-);
+); */
 
 // object desturcuting for 3 day forecast
 
@@ -3088,4 +3086,6 @@ for (let i = 0; i < forecastDays.length; i++) {
 	results.push(forecastObj);
 }
 
-console.log(results);
+/* console.log(results); */
+
+export { sampleObject, CurrentConditionsObj, results };

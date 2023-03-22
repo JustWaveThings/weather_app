@@ -2,7 +2,7 @@
 
 const weatherApiKey = process.env.WEATHER_API_KEY;
 
-async function getWeather(locationSearch, forecastDays = 3) {
+async function getWeather(locationSearch = 33040, forecastDays = 3) {
 	const location = convertInputsToUrlReady(locationSearch);
 	const days = convertInputsToUrlReady(forecastDays);
 	let weatherData = {};
@@ -14,7 +14,7 @@ async function getWeather(locationSearch, forecastDays = 3) {
 	});
 	try {
 		weatherData = await response.json();
-		console.log(weatherData);
+		//		console.log(weatherData);
 	} catch (err) {
 		console.log(err);
 	}
