@@ -1,8 +1,10 @@
 /* eslint-disable no-plusplus */
+
 import './style.css';
+import './meyerReset.css';
+import userFormData from './weather/weatherForm';
 import theWeather from './weather/weatherAPI';
 import pullWeatherData from './weather/weatherAppDataObj';
-import userFormData from './weather/weatherForm';
 
 async function getWeatherData(userInput) {
 	const data = userInput;
