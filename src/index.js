@@ -108,18 +108,18 @@ async function getGiphy(searchTerm = 'beach', offsetNumber = 500) {
 		mode: 'cors',
 	});
 	// eslint-disable-next-line no-shadow
-	response
+	const returnedGifs = await response
 		.json()
-		.then(function (response) {
-			addGifsToGifArray(response.data);
-			giphyImg.src = response.data[0].images.original.url;
-			giphyTitle.textContent = response.data.title;
+		.then(function (returnedGifs) {
+			addGifsToGifArray(returnedGifs.data);
+			giphyImg.src = returnedGifs.data[0].images.original.url;
+			giphyTitle.textContent = returnedGifs.data.title;
 			counter = 1;
 		})
 		.catch(err => {
 			giphyImg.src = defaultGif;
 			giphyTitle.textContent = 'No Gifs Found or Error';
-			// console.log(err);
+			console.log(err);
 		});
 }
 
