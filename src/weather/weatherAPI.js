@@ -1,9 +1,11 @@
 // eslint-disable-next-line consistent-return
+
 const weatherApiKey = process.env.WEATHER_API_KEY;
 
 async function getWeather(locationSearch, forecastDays = 3) {
 	const location = convertInputsToUrlReady(locationSearch);
 	const days = convertInputsToUrlReady(forecastDays);
+	let weatherData = {};
 	const newUrl = new URL(
 		`https://api.weatherapi.com/v1/forecast.json?key=${weatherApiKey}&q=${location}&days=${days}&aqi=no&alerts=no`
 	);
@@ -11,11 +13,12 @@ async function getWeather(locationSearch, forecastDays = 3) {
 		mode: 'cors',
 	});
 	try {
-		const weatherData = await response.json();
+		weatherData = await response.json();
 		console.log(weatherData);
 	} catch (err) {
 		console.log(err);
 	}
+	return weatherData;
 }
 
 /* Query parameter based on which data is sent back. It could be following:
