@@ -14,7 +14,7 @@ container.appendChild(header);
 
 const currentWeatherCard = document.createElement('section');
 currentWeatherCard.classList.add('current-weather-card');
-currentWeatherCard.textContent = 'Today';
+currentWeatherCard.textContent = '';
 container.appendChild(currentWeatherCard);
 
 // forecast section
@@ -36,15 +36,12 @@ forecastMainContainer.appendChild(forecastCards);
 // forecast cards
 const forecastCard1 = document.createElement('section');
 forecastCard1.classList.add('forecast-card');
-forecastCard1.textContent = 'Tomorrow';
 forecastCards.appendChild(forecastCard1);
 
 const forecastCard2 = document.createElement('section');
 forecastCard2.classList.add('forecast-card');
-forecastCard2.textContent = 'The Next Day';
 forecastCards.appendChild(forecastCard2);
 
 const forecastCard3 = document.createElement('section');
 forecastCard3.classList.add('forecast-card');
-forecastCard3.textContent = 'The Day After That';
 forecastCards.appendChild(forecastCard3);
