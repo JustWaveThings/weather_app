@@ -32,16 +32,3 @@ forecastMainContainer.appendChild(forecastHeader);
 const forecastCards = document.createElement('div');
 forecastCards.classList.add('forecast-cards');
 forecastMainContainer.appendChild(forecastCards);
-
-// forecast cards
-const forecastCard1 = document.createElement('section');
-forecastCard1.classList.add('forecast-card');
-forecastCards.appendChild(forecastCard1);
-
-const forecastCard2 = document.createElement('section');
-forecastCard2.classList.add('forecast-card');
-forecastCards.appendChild(forecastCard2);
-
-const forecastCard3 = document.createElement('section');
-forecastCard3.classList.add('forecast-card');
-forecastCards.appendChild(forecastCard3);

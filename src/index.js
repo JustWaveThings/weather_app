@@ -54,12 +54,16 @@ async function drawWeatherCards() {
 		: (wind.textContent = `Wind Speed is ${weatherObjects.currentConditionsObj.windKPH} kph and is blowing from an ${weatherObjects.currentConditionsObj.windDirection} heading`);
 	currentCard.appendChild(wind);
 
-	const forecastCard = document.querySelectorAll('.forecast-card');
+	const forecastCards = document.querySelector('.forecast-cards');
 
-	forecastCard.forEach((card, index) => {
+	console.log(weatherObjects.results);
+
+	weatherObjects.results.forEach((_, index) => {
+		const forecastCard = document.createElement('section');
+		forecastCard.classList.add('forecast-card');
 		const horizontalDiv = document.createElement('div');
 		horizontalDiv.classList.add('horizontal-div');
-		card.appendChild(horizontalDiv);
+		forecastCard.appendChild(horizontalDiv);
 
 		const forecastDate = document.createElement('h3');
 		forecastDate.classList.add('forecast-date');
@@ -78,12 +82,13 @@ async function drawWeatherCards() {
 		farenheitSelector
 			? (forecastTemp.textContent = `High: ${weatherObjects.results[index].maxTempF} °F - Low: ${weatherObjects.results[index].minTempF} °F`)
 			: (forecastTemp.textContent = `High: ${weatherObjects.results[index].maxHighC} °C - Low: ${weatherObjects.results[index].minHighC} °C`);
-		card.appendChild(forecastTemp);
+		forecastCard.appendChild(forecastTemp);
 
 		const forecastRain = document.createElement('p');
 		forecastRain.classList.add('forecast-wind');
 		forecastRain.textContent = `Chance of Rain: ${weatherObjects.results[index].dailyChanceOfRain} % - UV Index: ${weatherObjects.results[index].uvIndex}`;
-		card.appendChild(forecastRain);
+		forecastCard.appendChild(forecastRain);
+		forecastCards.appendChild(forecastCard);
 	});
 }
 
