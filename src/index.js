@@ -1,12 +1,19 @@
 /* eslint-disable no-plusplus */
 import './style.css';
-import weather from './weather/weatherAPI';
+import theWeather from './weather/weatherAPI';
 import pullWeatherData from './weather/weatherAppDataObj';
-import {
-	sampleObject,
-	CurrentConditionsObj,
-	results,
-} from './weather/exampleWeatherObj';
+import userFormData from './weather/weatherForm';
 
-const weatherObjects = pullWeatherData(sampleObject);
-console.log(weatherObjects);
+async function getWeatherData(userInput) {
+	const data = userInput;
+	console.log(data);
+	try {
+		const weatherData = await theWeather(data);
+		const weatherObjects = await pullWeatherData(weatherData);
+		console.log(weatherObjects);
+	} catch (err) {
+		console.log(err);
+	}
+}
+
+getWeatherData(userFormData);

@@ -1,8 +1,6 @@
-// eslint-disable-next-line consistent-return
-
 const weatherApiKey = process.env.WEATHER_API_KEY;
 
-async function getWeather(locationSearch = 33040, forecastDays = 3) {
+async function getWeather(locationSearch, forecastDays) {
 	const location = convertInputsToUrlReady(locationSearch);
 	const days = convertInputsToUrlReady(forecastDays);
 	let weatherData = {};
@@ -14,7 +12,6 @@ async function getWeather(locationSearch = 33040, forecastDays = 3) {
 	});
 	try {
 		weatherData = await response.json();
-		//		console.log(weatherData);
 	} catch (err) {
 		console.log(err);
 	}
@@ -31,15 +28,16 @@ metar:<metar code> e.g: metar:EGLL
 iata:<3 digit airport code> e.g: iata:DXB
  */
 
+// eslint-disable-next-line consistent-return
 function convertInputsToUrlReady(userInput) {
 	if (typeof +userInput === 'number') {
-		console.log('number type input');
+		console.log('either a number type or can be coereced to a number');
 		return userInput;
 	}
 	if (typeof userInput === 'string') {
 		return userInput.replaceAll(/ /g, '');
 	}
-	return console.assert('Error: Input is not a string or number');
+	console.log('Error: Input is not a string or number');
 }
 
 export default getWeather;

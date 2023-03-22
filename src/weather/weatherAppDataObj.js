@@ -1,8 +1,8 @@
 /* eslint-disable no-plusplus */
 
-function pullWeatherData(weatherAPIResponse) {
+async function pullWeatherData(weatherAPIResponse) {
 	const {
-		location: { name, region, country, localtime: localDateTime },
+		location: { region, name, country, localtime: localDateTime },
 		current: {
 			temp_f: tempF,
 			feelslike_f: feelsLikeF,
@@ -11,9 +11,9 @@ function pullWeatherData(weatherAPIResponse) {
 			is_day: isDay,
 			condition: { text: textCondition, icon: conditionIcon },
 		},
-	} = weatherAPIResponse;
+	} = await weatherAPIResponse;
 
-	const CurrentConditionsObj = {
+	const currentConditionsObj = {
 		name,
 		region,
 		country,
@@ -28,7 +28,7 @@ function pullWeatherData(weatherAPIResponse) {
 		conditionIcon: `https:${conditionIcon}`,
 	};
 
-	const forecastDays = weatherAPIResponse.forecast.forecastday;
+	const forecastDays = await weatherAPIResponse.forecast.forecastday;
 	const results = [];
 
 	for (let i = 0; i < forecastDays.length; i++) {
@@ -71,7 +71,7 @@ function pullWeatherData(weatherAPIResponse) {
 
 		results.push(forecastObj);
 	}
-	return { results, CurrentConditionsObj };
+	return { currentConditionsObj, results };
 }
 
 export default pullWeatherData;
