@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 /* eslint-disable no-plusplus */
 
 import './style.css';
@@ -14,9 +15,20 @@ async function getWeatherData(userInput) {
 		const weatherData = await theWeather(data);
 		const weatherObjects = await pullWeatherData(weatherData);
 		console.log(weatherObjects);
+		return weatherObjects;
 	} catch (err) {
 		console.log(err);
 	}
 }
 
-getWeatherData(userFormData);
+async function drawWeatherCards() {
+	const currentCard = document.querySelector('.current-weather-card');
+	const weatherObjects = await getWeatherData(userFormData);
+
+	const weatherImg = document.createElement('img');
+	weatherImg.classList.add('weather-img');
+	weatherImg.src = await weatherObjects.currentConditionsObj.conditionIcon;
+	currentCard.appendChild(weatherImg);
+}
+
+drawWeatherCards();
