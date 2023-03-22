@@ -51,6 +51,6 @@ searchBtn.addEventListener('click', function (e) {
 	searchInput.value = '';
 });
 
-const userInput = [33045, 3];
+const userInput = [33045];
 
 export default userInput;

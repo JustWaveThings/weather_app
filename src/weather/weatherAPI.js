@@ -1,17 +1,19 @@
 const weatherApiKey = process.env.WEATHER_API_KEY;
 
-async function getWeather(locationSearch, forecastDays) {
+async function getWeather(locationSearch, forecastDays = 3) {
 	const location = convertInputsToUrlReady(locationSearch);
 	const days = convertInputsToUrlReady(forecastDays);
 	let weatherData = {};
 	const newUrl = new URL(
 		`https://api.weatherapi.com/v1/forecast.json?key=${weatherApiKey}&q=${location}&days=${days}&aqi=no&alerts=no`
 	);
+	console.log(newUrl.href);
 	const response = await fetch(newUrl.href, {
 		mode: 'cors',
 	});
 	try {
 		weatherData = await response.json();
+		console.log(weatherData);
 	} catch (err) {
 		console.log(err);
 	}
