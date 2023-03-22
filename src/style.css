@@ -33,6 +33,7 @@ body {
 	border-radius: 1rem;
 	color: black;
 	width: 100%;
+	text-align: center;
 }
 
 .current-weather-section {
@@ -41,6 +42,8 @@ body {
 	justify-content: center;
 	align-items: center;
 	border: dotted 5px black;
+	height: 50vh;
+
 
 }
 
@@ -67,6 +70,10 @@ body {
 	flex-direction: column;
 	background-color: azure;
 	width: 100%;
+}
+
+.current-weather-card{
+	flex-grow: 1;
 }
 
 .container {
