@@ -45,12 +45,8 @@ const searchBtnIcon = document.createElement('i');
 searchBtnIcon.classList.add('fa', 'fasearch');
 searchBtn.appendChild(searchBtnIcon);
 
-searchBtn.addEventListener('click', function (e) {
-	e.preventDefault();
-	console.log(searchInput.value);
-	searchInput.value = '';
-});
-
-const userInput = [33045];
-
-export default userInput;
+const toggle = document.createElement('button');
+toggle.classList.add('search-btn');
+toggle.id = 'toggle';
+toggle.textContent = 'F°/ C°';
+searchForm.appendChild(toggle);

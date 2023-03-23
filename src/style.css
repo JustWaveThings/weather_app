@@ -18,8 +18,7 @@ body {
 	justify-content: space-evenly;
 	align-items: flex-start;
 	gap: 1rem;
-	padding: 5rem;
-
+	padding: 2rem;
 	flex-wrap: wrap;
 
 }
@@ -32,7 +31,6 @@ body {
 	padding: .7rem 1rem;
 	border-radius: .5rem;
 	color: black;
-
 	text-align: center;
 	margin: 2rem;
 }
@@ -61,16 +59,18 @@ body {
 	justify-content: center;
 	align-items: center;
 	gap: 1rem;
-
-
+	flex-wrap: wrap;
 }
+
+
+
 .forecast-card, .current-weather-card {
 	display: flex;
 	gap: 1rem;
 	padding: 3rem;
 	flex-direction: column;
 	background-color: whitesmoke;
-
+	flex-shrink: 0;
 	border-radius: .5rem;
 }
 
@@ -79,6 +79,7 @@ body {
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
+	flex-wrap: wrap;
 }
 
 .current-weather-card{

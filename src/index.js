@@ -4,15 +4,42 @@
 
 import './style.css';
 import './meyerReset.css';
-import userFormData from './weather/weatherForm';
+import './weather/weatherForm';
 import theWeather from './weather/weatherAPI';
 import pullWeatherData from './weather/weatherAppDataObj';
 import './weather/mainViews';
 
-const farenheitSelector = true;
+let farenheitSelector = true;
 
-async function getWeatherData(userInput) {
-	const data = userInput;
+const searchBtn = document.querySelector('.search-btn');
+const searchInput = document.querySelector('.search-input');
+const toggle = document.querySelector('#toggle');
+
+let userInput = '33045';
+
+searchBtn.addEventListener('click', function (e) {
+	e.preventDefault();
+	console.log(searchInput.value);
+	if (searchInput.value === '' || searchInput.value === null) {
+		userInput = '33045';
+	} else {
+		userInput = searchInput.value;
+	}
+	getWeatherData(userInput);
+	clearWeatherCards();
+	drawWeatherCards();
+});
+
+toggle.addEventListener('click', function (e) {
+	e.preventDefault();
+	farenheitSelector ? (farenheitSelector = false) : (farenheitSelector = true);
+	clearWeatherCards();
+	drawWeatherCards();
+	console.log(farenheitSelector);
+});
+
+async function getWeatherData(userLocation) {
+	const data = userLocation;
 	console.log(data);
 	try {
 		const weatherData = await theWeather(data);
@@ -26,7 +53,7 @@ async function getWeatherData(userInput) {
 
 async function drawWeatherCards() {
 	const currentCard = document.querySelector('.current-weather-card');
-	const weatherObjects = await getWeatherData(userFormData);
+	const weatherObjects = await getWeatherData(userInput);
 
 	const weatherImg = document.createElement('img');
 	weatherImg.classList.add('weather-img');
@@ -93,3 +120,10 @@ async function drawWeatherCards() {
 }
 
 drawWeatherCards();
+
+function clearWeatherCards() {
+	const currentCard = document.querySelector('.current-weather-card');
+	const forecastCards = document.querySelector('.forecast-cards');
+	currentCard.innerHTML = '';
+	forecastCards.innerHTML = '';
+}
