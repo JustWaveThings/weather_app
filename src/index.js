@@ -55,12 +55,22 @@ async function drawWeatherCards() {
 	const currentCard = document.querySelector('.current-weather-card');
 	const weatherObjects = await getWeatherData(userInput);
 
+	const currentHorizontalDiv = document.createElement('div');
+	currentHorizontalDiv.classList.add('current-horizontal-div');
+	currentCard.appendChild(currentHorizontalDiv);
+
 	const weatherImg = document.createElement('img');
 	weatherImg.classList.add('weather-img');
 	weatherImg.src = weatherObjects.currentConditionsObj.conditionIcon;
 	weatherImg.style.height = '100px';
 	weatherImg.style.width = '100px';
-	currentCard.appendChild(weatherImg);
+	currentHorizontalDiv.appendChild(weatherImg);
+
+	const currentTextCondition = document.createElement('h3');
+	currentTextCondition.classList.add('current-text-condition');
+	currentTextCondition.textContent =
+		weatherObjects.currentConditionsObj.textCondition;
+	currentHorizontalDiv.appendChild(currentTextCondition);
 
 	const location = document.createElement('h3');
 	location.classList.add('location');
@@ -108,7 +118,7 @@ async function drawWeatherCards() {
 		forecastTemp.classList.add('forecast-temp');
 		farenheitSelector
 			? (forecastTemp.textContent = `High: ${weatherObjects.results[index].maxTempF} °F - Low: ${weatherObjects.results[index].minTempF} °F`)
-			: (forecastTemp.textContent = `High: ${weatherObjects.results[index].maxHighC} °C - Low: ${weatherObjects.results[index].minHighC} °C`);
+			: (forecastTemp.textContent = `High: ${weatherObjects.results[index].maxTempC} °C - Low: ${weatherObjects.results[index].minTempC} °C`);
 		forecastCard.appendChild(forecastTemp);
 
 		const forecastRain = document.createElement('p');

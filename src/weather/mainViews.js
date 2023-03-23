@@ -32,3 +32,20 @@ forecastMainContainer.appendChild(forecastHeader);
 const forecastCards = document.createElement('div');
 forecastCards.classList.add('forecast-cards');
 forecastMainContainer.appendChild(forecastCards);
+
+// footer
+
+const footer = document.createElement('footer');
+footer.classList.add('footer');
+document.body.appendChild(footer);
+
+const footerText = document.createElement('p');
+footerText.classList.add('footer-copyright');
+footerText.textContent = '© 2023 JustWaveThings';
+footer.appendChild(footerText);
+
+const footerLink = document.createElement('a');
+footerLink.classList.add('footer-link');
+footerLink.textContent = 'Background Images by Pixabay';
+footerLink.href = 'https://pixabay.com/';
+footer.appendChild(footerLink);

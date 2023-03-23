@@ -40,7 +40,20 @@ body {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+}
 
+.current-horizontal-div{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	gap: 30%;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.current-text-condition {
+	font-size: 1.5rem;
+	font-weight: 300;
 
 
 }
@@ -142,4 +155,16 @@ form.search-form {
 .search-input:hover{
 	cursor: text;
 	transform: scale(1.05)
+}
+
+.footer {]
+	margin-top: auto;
+	padding-top: 4rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: flex-end;
+	gap: 1rem;
+	font-size: 1rem;
+	font-weight: 300;
 }
